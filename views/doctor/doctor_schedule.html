@@ -1,0 +1,35 @@
+﻿{% extends 'layout.html' %}
+{%block main%}
+
+<section class="content page-calendar">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 col-lg-4 col-xl-3">
+                <div class="card m-t-20">
+                    <div class="body">
+                        <button type="button" class="btn btn-raised btn-primary btn-sm m-t-0" data-toggle="modal" href="#cal-new-event"> <i class="zmdi zmdi-plus"></i> 日程安排</button>
+                        <button class="btn btn-sm btn-default hidden-lg-up m-t-0" data-toggle="collapse" data-target="#open-chats" aria-expanded="false" aria-controls="collapseExample"><i class="zmdi zmdi-chevron-down"></i></button>
+                        <div class="collapse-xs collapse-sm collapse" id="open-chats">
+                            <div class="event-name b-greensea"> 睡觉 #1 <a class=" text-muted event-remove"><i class="zmdi zmdi-delete"></i></a> </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-8 col-xl-9">
+                <div class="card m-t-20">
+                    <div class="body">
+                        <button class="btn btn-raised btn-success btn-sm m-r-0 m-t-0" id="change-view-today">今天</button>
+                        <button class="btn btn-raised btn-default btn-sm m-r-0 m-t-0" id="change-view-day" >天</button>
+                        <button class="btn btn-raised btn-default btn-sm m-r-0 m-t-0" id="change-view-week">星期</button>
+                        <button class="btn btn-raised btn-default btn-sm m-r-0 m-t-0" id="change-view-month">月</button>
+                        <div id="calendar"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{%endblock%}
+

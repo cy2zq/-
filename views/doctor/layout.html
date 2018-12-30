@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>:: 弋矶山 - 医院 Admin ::</title>
+    <link rel="icon" href="/public/assets/images/favicon.ico" type="image/x-icon">
+
+    <link href="/public/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+    <link href="/public/assets/plugins/dropzone/dropzone.css" rel="stylesheet">
+    <link href="/public/assets/plugins/morrisjs/morris.css" rel="stylesheet" />
+    <link href="/public/assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet" />
+    <link href="/public/assets/plugins/waitme/waitMe.css" rel="stylesheet" />
+    <link href="/public/assets/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+    <!--日历==医生进程-->
+    <link href="/public/assets/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet">
+    <link href="/public/assets/css/main.css" rel="stylesheet">
+    <!-- 弋矶山 Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="/public/assets/css/themes/all-themes.css" rel="stylesheet" />
+
+
+</head>
+<body class="theme-cyan">
+<!-- Page Loader -->
+<div class="page-loader-wrapper">
+    <div class="loader">
+        <div class="preloader">
+            <div class="spinner-layer pl-cyan">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+        <p>请稍等。。。。</p>
+    </div>
+</div>
+<!-- #END# Page Loader -->
+<!-- Overlay For Sidebars -->
+<div class="overlay"></div>
+<!-- #END# Overlay For Sidebars -->
+<!-- #Float icon -->
+<ul id="f-menu" class="mfb-component--br mfb-zoomin" data-mfb-toggle="hover">
+    <li class="mfb-component__wrap">
+        <a href="#" class="mfb-component__button--main g-bg-cyan">
+            <i class="mfb-component__main-icon--resting zmdi zmdi-plus"></i>
+            <i class="mfb-component__main-icon--active zmdi zmdi-close"></i>
+        </a>
+        <ul class="mfb-component__list">
+            <li>
+                <a href="/admin/doctor/schedule" data-mfb-label="日程安排" class="mfb-component__button--child bg-blue">
+                    <i class="zmdi zmdi-calendar mfb-component__child-icon"></i>
+                </a>
+            </li>
+            <li>
+                <a href="/admin/patients" data-mfb-label="病人列表" class="mfb-component__button--child bg-orange">
+                    <i class="zmdi zmdi-account-o mfb-component__child-icon"></i>
+                </a>
+            </li>
+
+            <li>
+                <a href="/admin/payments" data-mfb-label="预交金" class="mfb-component__button--child bg-purple">
+                    <i class="zmdi zmdi-balance-wallet mfb-component__child-icon"></i>
+                </a>
+            </li>
+        </ul>
+    </li>
+</ul>
+<!-- #Float icon -->
+<!-- Morphing Search  -->
+<div id="morphsearch" class="morphsearch">
+    <form class="morphsearch-form">
+        <div class="form-group m-0">
+            <input value="" type="search" placeholder="搜索 弋矶山..." class="form-control morphsearch-input" />
+            <button class="morphsearch-submit" type="submit"></button>
+        </div>
+    </form>
+    <div class="morphsearch-content">
+        <div class="dummy-column">
+            <h2>a</h2>
+            <a class="dummy-media-result[x]ect" href="#"> <img class="round" src="/public/assets/images/xs/avatar1.jpg" alt=""/>
+                <h3>b</h3>
+            </a> <a class="dummy-media-result[x]ect" href="#"> <img class="round" src="/public/assets/images/xs/avatar2.jpg" alt=""/>
+            <h3>b</h3>
+        </a> <a class="dummy-media-result[x]ect" href="#"> <img class="round" src="/public/assets/images/xs/avatar3.jpg" alt=""/>
+            <h3>b</h3>
+        </a> <a class="dummy-media-result[x]ect" href="#"> <img class="round" src="/public/assets/images/xs/avatar4.jpg" alt=""/>
+            <h3>b</h3>
+        </a> <a class="dummy-media-result[x]ect" href="#"> <img class="round" src="/public/assets/images/xs/avatar5.jpg" alt=""/>
+            <h3>b</h3>
+        </a></div>
+        <div class="dummy-column">
+            <h2>Popular</h2>
+            <a class="dummy-media-result[x]ect" href="#"> <img class="round" src="/public/assets/images/xs/avatar5.jpg" alt=""/>
+                <h3>Sara Soueidan</h3>
+            </a> <a class="dummy-media-result[x]ect" href="#"> <img class="round" src="/public/assets/images/xs/avatar4.jpg" alt=""/>
+            <h3>Rachel Smith</h3>
+        </a> <a class="dummy-media-result[x]ect" href="#"> <img class="round" src="/public/assets/images/xs/avatar1.jpg" alt=""/>
+            <h3>Peter Finlan</h3>
+        </a> <a class="dummy-media-result[x]ect" href="#"> <img class="round" src="/public/assets/images/xs/avatar2.jpg" alt=""/>
+            <h3>Patrick Cox</h3>
+        </a> <a class="dummy-media-result[x]ect" href="#"> <img class="round" src="/public/assets/images/xs/avatar3.jpg" alt=""/>
+            <h3>Tim Holman</h3>
+        </a> </div>
+        <div class="dummy-column">
+            <h2>Recent</h2>
+            <a class="dummy-media-result[x]ect" href="#"> <img class="round" src="/public/assets/images/xs/avatar1.jpg" alt=""/>
+                <h3>Sara Soueidan</h3>
+            </a> <a class="dummy-media-result[x]ect" href="#"> <img class="round" src="/public/assets/images/xs/avatar5.jpg" alt=""/>
+            <h3>Rachel Smith</h3>
+        </a> <a class="dummy-media-result[x]ect" href="#"> <img class="round" src="/public/assets/images/xs/avatar1.jpg" alt=""/>
+            <h3>Peter Finlan</h3>
+        </a> <a class="dummy-media-result[x]ect" href="#"> <img class="round" src="/public/assets/images/xs/avatar4.jpg" alt=""/>
+            <h3>Patrick Cox</h3>
+        </a> <a class="dummy-media-result[x]ect" href="#"> <img class="round" src="/public/assets/images/xs/avatar2.jpg" alt=""/>
+            <h3>Tim Holman</h3>
+        </a></div>
+    </div>
+    <!-- /morphsearch-content -->
+    <span class="morphsearch-close"></span> </div>
+<!-- Top Bar -->
+<nav class="navbar clearHeader">
+    <div class="col-12">
+        <div class="navbar-header"> <a href="javascript:void(0);" class="bars"></a> <a class="navbar-brand" href="/admin/doctor">弋矶山 Hospital</a> </div>
+        <ul class="nav navbar-nav navbar-right">
+            <!-- Notifications -->
+            <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="zmdi zmdi-notifications"></i> <span class="label-count">7</span> </a>
+                <ul class="dropdown-menu">
+                    <li class="header">NOTIFICATIONS</li>
+                    <li class="body">
+                        <ul class="menu">
+                            <li> <a href="javascript:void(0);">
+                                <div class="icon-circle bg-light-green"><i class="zmdi zmdi-account-add"></i></div>
+                                <div class="menu-info">
+                                    <h4>12 new members joined</h4>
+                                    <p> <i class="material-icons">access_time</i> 14 mins ago </p>
+                                </div>
+                            </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <div class="icon-circle bg-cyan"><i class="zmdi zmdi-shopping-cart-plus"></i></div>
+                                <div class="menu-info">
+                                    <h4>4 sales made</h4>
+                                    <p> <i class="material-icons">access_time</i> 22 mins ago </p>
+                                </div>
+                            </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <div class="icon-circle bg-red"><i class="zmdi zmdi-delete"></i></div>
+                                <div class="menu-info">
+                                    <h4><b>Nancy Doe</b> deleted account</h4>
+                                    <p> <i class="material-icons">access_time</i> 3 hours ago </p>
+                                </div>
+                            </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <div class="icon-circle bg-orange"><i class="zmdi zmdi-edit"></i></div>
+                                <div class="menu-info">
+                                    <h4><b>Nancy</b> changed name</h4>
+                                    <p> <i class="material-icons">access_time</i> 2 hours ago </p>
+                                </div>
+                            </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <div class="icon-circle bg-blue-grey"><i class="zmdi zmdi-comment-alt-text"></i></div>
+                                <div class="menu-info">
+                                    <h4><b>John</b> commented your post</h4>
+                                    <p> <i class="material-icons">access_time</i> 4 hours ago </p>
+                                </div>
+                            </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <div class="icon-circle bg-light-green"><i class="zmdi zmdi-refresh-alt"></i></div>
+                                <div class="menu-info">
+                                    <h4><b>John</b> updated status</h4>
+                                    <p> <i class="material-icons">access_time</i> 3 hours ago </p>
+                                </div>
+                            </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <div class="icon-circle bg-purple"><i class="zmdi zmdi-settings"></i></div>
+                                <div class="menu-info">
+                                    <h4>Settings updated</h4>
+                                    <p> <i class="material-icons">access_time</i> Yesterday </p>
+                                </div>
+                            </a> </li>
+                        </ul>
+                    </li>
+                    <li class="footer"> <a href="javascript:void(0);">View All Notifications</a> </li>
+                </ul>
+            </li>
+            <!-- #END# Notifications -->
+            <!-- Tasks -->
+            <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="zmdi zmdi-flag"></i><span class="label-count">9</span> </a>
+                <ul class="dropdown-menu">
+                    <li class="header">任务</li>
+                    <li class="body">
+                        <ul class="menu tasks">
+                            <li> <a href="javascript:void(0);">
+                                <h4> Task 1 <small>32%</small> </h4>
+                                <div class="progress">
+                                    <div class="progress-bar bg-pink" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 32%"> </div>
+                                </div>
+                            </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <h4>Task 2 <small>45%</small> </h4>
+                                <div class="progress">
+                                    <div class="progress-bar bg-cyan" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 45%"> </div>
+                                </div>
+                            </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <h4>Task 3 <small>54%</small> </h4>
+                                <div class="progress">
+                                    <div class="progress-bar bg-teal" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 54%"> </div>
+                                </div>
+                            </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <h4> Task 4 <small>65%</small> </h4>
+                                <div class="progress">
+                                    <div class="progress-bar bg-orange" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 65%"> </div>
+                                </div>
+                            </a> </li>
+                        </ul>
+                    </li>
+                    <li class="footer"> <a href="javascript:void(0);">View All Tasks</a> </li>
+                </ul>
+            </li>
+            <!-- #END# Tasks -->
+            <li><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="zmdi zmdi-settings"></i></a></li>
+        </ul>
+    </div>
+</nav>
+<!-- #Top Bar -->
+<section>
+    <!-- Left Sidebar -->
+    <aside id="leftsidebar" class="sidebar">
+        <!-- User Info -->
+        <div class="user-info">
+            <div class="admin-image"> <img src="/public/assets/images/avatar77.jfif" alt=""> </div>
+            <div class="admin-action-info"> <span>欢迎您</span>
+                <h3>{{userInfo.username}}</h3>
+                <ul>
+                    <li><a data-placement="bottom" title="Go to Inbox" href="mail-inbox"><i class="zmdi zmdi-email"></i></a></li>
+                    <li><a data-placement="bottom" title="Go to Profile" href="profile"><i class="zmdi zmdi-account"></i></a></li>
+                    <li><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="zmdi zmdi-settings"></i></a></li>
+                    <li><a data-placement="bottom" title="Full Screen" href="sign-in" ><i class="zmdi zmdi-sign-in"></i></a></li>
+                </ul>
+            </div>
+            <div class="quick-stats">
+                <h5>今日报告</h5>
+                <ul>
+                    <li><span>16<i>患者</i></span></li>
+                    <li><span>20<i>Panding</i></span></li>
+                    <li><span>04<i>访问量</i></span></li>
+                </ul>
+            </div>
+        </div>
+        <!-- #User Info -->
+        <!-- Menu -->
+        <div class="menu">
+            <ul class="list">
+                <li class="header">主目录</li>
+                <li class="active open"><a href="/admin/doctor"><i class="zmdi zmdi-home"></i><span>数据图</span></a></li>
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-calendar-check"></i><span>预约</span> </a>
+                    <ul class="ml-menu">
+                        <li><a href="/admin/doctor/schedule">医生日程安排</a></li>
+                        <li><a href="/admin/doctor/appointment">预约</a></li>
+                    </ul>
+                </li>
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-add"></i><span>医生</span> </a>
+                    <ul class="ml-menu">
+                        <li><a href="/admin/doctors">医生列表</a></li>
+                        <li><a href="/admin/doctor/add">增加医生</a></li>
+                        <li><a href="/admin/doctor/profile">医生简介</a></li>
+                    </ul>
+                </li>
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>病人</span> </a>
+                    <ul class="ml-menu">
+                        <li><a href="/admin/patients">病人列表</a></li>
+                        <li><a href="/admin/patient/add">增加病人</a></li>
+                        <li><a href="/admin/patient/profile">患者简介</a></li>
+                        <li><a href="/admin/patient/invoice">费用清单</a></li>
+                    </ul>
+                </li>
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-balance-wallet"></i><span>预交金</span> </a>
+                    <ul class="ml-menu">
+                        <li> <a href="/admin/payments">预交金记录</a></li>
+                        <li> <a href="/admin/payment/add">充值</a></li>
+                        <li> <a href="/admin/patient/invoice">费用清单</a></li>
+                    </ul>
+                </li>
+                <li><a href="/admin/reports"><i class="zmdi zmdi-file-text"></i><span>报告</span></a></li>
+                <li><a href="/admin/widgets"><i class="zmdi zmdi-delicious"></i><span>Widgets</span></a></li>
+
+                <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-swap-alt"></i><span>用户界面(UI)</span> </a>
+                    <ul class="ml-menu">
+                        <li> <a href="/admin/typography">Typography</a> </li>
+                        <li> <a href="/admin/helper-classes">Helper Classes</a></li>
+                        <li> <a href="/admin/alerts">Alerts</a> </li>
+                        <li> <a href="/admin/animations">Animations</a> </li>
+                        <li> <a href="/admin/badges">Badges</a> </li>
+                        <li> <a href="/admin/breadcrumbs">Breadcrumbs</a> </li>
+                        <li> <a href="/admin/buttons">Buttons</a> </li>
+                        <li> <a href="/admin/collapse">Collapse</a> </li>
+                        <li> <a href="/admin/colors">Colors</a> </li>
+                        <li> <a href="/admin/dialogs">Dialogs</a> </li>
+                        <li> <a href="/admin/icons">Icons</a> </li>
+                        <li> <a href="/admin/labels">Labels</a> </li>
+                        <li> <a href="/admin/list-group">List Group</a> </li>
+                        <li> <a href="/admin/media-result[x]ect">Media result[x]ect</a> </li>
+                        <li> <a href="/admin/modals">Modals</a> </li>
+                        <li> <a href="/admin/notifications">Notifications</a> </li>
+                        <li> <a href="/admin/pagination">Pagination</a> </li>
+                        <li> <a href="/admin/preloaders">Preloaders</a> </li>
+                        <li> <a href="/admin/progressbars">Progress Bars</a> </li>
+                        <li> <a href="/admin/range-sliders">Range Sliders</a> </li>
+                        <li> <a href="/admin/sortable-nestable">Sortable & Nestable</a> </li>
+                        <li> <a href="/admin/tabs">Tabs</a> </li>
+                        <li> <a href="/admin/waves">Waves</a> </li>
+                    </ul>
+                </li>
+                <li class="header">LABELS</li>
+                <li> <a href="javascript:void(0);"><i class="zmdi zmdi-chart-donut col-red"></i><span>Important</span> </a> </li>
+                <li> <a href="javascript:void(0);"><i class="zmdi zmdi-chart-donut col-amber"></i><span>Warning</span> </a> </li>
+                <li> <a href="javascript:void(0);"><i class="zmdi zmdi-chart-donut col-blue"></i><span>Information</span> </a> </li>
+            </ul>
+        </div>
+        <!-- #Menu -->
+    </aside>
+    <!-- #END# Left Sidebar -->
+    <!-- Right Sidebar -->
+    <aside id="rightsidebar" class="right-sidebar">
+        <ul class="nav nav-tabs tab-nav-right" role="tablist">
+            <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#skins">Skins</a></li>
+            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#chat">Chat</a></li>
+            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#settings">Setting</a></li>
+        </ul>
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane in active in active" id="skins">
+                <ul class="demo-choose-skin">
+                    <li data-theme="red">
+                        <div class="red"></div>
+                        <span>Red</span> </li>
+                    <li data-theme="purple">
+                        <div class="purple"></div>
+                        <span>Purple</span> </li>
+                    <li data-theme="blue">
+                        <div class="blue"></div>
+                        <span>Blue</span> </li>
+                    <li data-theme="cyan" class="active">
+                        <div class="cyan"></div>
+                        <span>Cyan</span> </li>
+                    <li data-theme="green">
+                        <div class="green"></div>
+                        <span>Green</span> </li>
+                    <li data-theme="deep-orange">
+                        <div class="deep-orange"></div>
+                        <span>Deep Orange</span> </li>
+                    <li data-theme="blue-grey">
+                        <div class="blue-grey"></div>
+                        <span>Blue Grey</span> </li>
+                    <li data-theme="black">
+                        <div class="black"></div>
+                        <span>Black</span> </li>
+                    <li data-theme="blush">
+                        <div class="blush"></div>
+                        <span>Blush</span> </li>
+                </ul>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="chat">
+                <div class="demo-settings">
+                    <div class="search">
+                        <div class="input-group">
+                            <div class="form-line">
+                                <input type="text" class="form-control" placeholder="Search..." required autofocus>
+                            </div>
+                        </div>
+                    </div>
+                    <h6>Recent</h6>
+                    <ul>
+                        <li class="online">
+                            <div class="media">
+                                <a  role="button" tabindex="0"> <img class="media-result[x]ect " src="/public/assets/images/xs/avatar1.jpg" alt=""> </a>
+                                <div class="media-body">
+                                    <span class="name">Claire Sassu</span> <span class="message">Can you share the...</span> <span class="badge badge-outline status"></span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="online">
+                            <div class="media"> <a  role="button" tabindex="0"> <img class="media-result[x]ect " src="/public/assets/images/xs/avatar2.jpg" alt=""> </a>
+                                <div class="media-body">
+                                    <span class="name">Maggie jackson</span> <span class="message">Can you share the...</span> <span class="badge badge-outline status"></span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="online">
+                            <div class="media"> <a  role="button" tabindex="0"> <img class="media-result[x]ect " src="/public/assets/images/xs/avatar3.jpg" alt=""> </a>
+                                <div class="media-body">
+                                    <span class="name">Joel King</span> <span class="message">Ready for the meeti...</span> <span class="badge badge-outline status"></span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <h6>Contacts</h6>
+                    <ul>
+                        <li class="offline">
+                            <div class="media"> <a  role="button" tabindex="0"> <img class="media-result[x]ect " src="/public/assets/images/xs/avatar4.jpg" alt=""> </a>
+                                <div class="media-body">
+                                    <span class="name">Joel King</span> <span class="badge badge-outline status"></span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="online">
+                            <div class="media"> <a  role="button" tabindex="0"> <img class="media-result[x]ect " src="/public/assets/images/xs/avatar1.jpg" alt=""> </a>
+                                <div class="media-body">
+                                    <span class="name">Joel King</span> <span class="badge badge-outline status"></span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="offline">
+                            <div class="media"> <a class="pull-left " role="button" tabindex="0"> <img class="media-result[x]ect " src="/public/assets/images/xs/avatar2.jpg" alt=""> </a>
+                                <div class="media-body">
+                                    <span class="name">Joel King</span> <span class="badge badge-outline status"></span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="settings">
+                <div class="demo-settings">
+                    <p>GENERAL SETTINGS</p>
+                    <ul class="setting-list">
+                        <li> <span>Report Panel Usage</span>
+                            <div class="switch">
+                                <label>
+                                    <input type="checkbox" checked>
+                                    <span class="lever"></span></label>
+                            </div>
+                        </li>
+                        <li> <span>Email Redirect</span>
+                            <div class="switch">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="lever"></span></label>
+                            </div>
+                        </li>
+                    </ul>
+                    <p>SYSTEM SETTINGS</p>
+                    <ul class="setting-list">
+                        <li> <span>Notifications</span>
+                            <div class="switch">
+                                <label>
+                                    <input type="checkbox" checked>
+                                    <span class="lever"></span></label>
+                            </div>
+                        </li>
+                        <li> <span>Auto Updates</span>
+                            <div class="switch">
+                                <label>
+                                    <input type="checkbox" checked>
+                                    <span class="lever"></span></label>
+                            </div>
+                        </li>
+                    </ul>
+                    <p>ACCOUNT SETTINGS</p>
+                    <ul class="setting-list">
+                        <li> <span>Offline</span>
+                            <div class="switch">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="lever"></span></label>
+                            </div>
+                        </li>
+                        <li> <span>Location Permission</span>
+                            <div class="switch">
+                                <label>
+                                    <input type="checkbox" checked>
+                                    <span class="lever"></span></label>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <!-- #END# Right Sidebar -->
+</section>
+{%block main%}{%endblock%}
+
+<div class="color-bg" style="height: 100%;"></div>
+<style>
+    .color-bg{
+        background: url("/public/assets/images/image-1.jpg") no-repeat -30px!important;
+        background-size: cover!important;
+    }
+    .show{
+        display: block;
+    }
+    .hide{
+        display: none;
+    }
+</style>
+</body>
+
+</html>
+<!-- Jquery Core Js -->
+<script src="/public/assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
+<script src="/public/assets/bundles/morphingsearchscripts.bundle.js"></script> <!-- morphing search Js -->
+<script src="/public/assets/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
+<script src="/public/assets/bundles/mainscripts.bundle.js"></script><!-- Custom Js -->
+<script src="/public/assets/bundles/morphingscripts.bundle.js"></script><!-- morphing search page js -->
+<script src="/public/assets/bundles/morphingsearchscripts.bundle.js"></script> <!-- morphing search Js -->
+
+<script src="/public/assets/bundles/fullcalendarscripts.bundle.js"></script><!--/ calender 日程 -->
+<script src="/public/assets/js/pages/calendar/calendar.js"></script><!--/ calender 日程 -->
+<!-- Bootstrap Material Datetime Picker Plugin Js -->
+<script src="/public/assets/plugins/jquery-sparkline/jquery.sparkline.min.js"></script> <!-- Sparkline Plugin Js -->
+<script src="/public/assets/plugins/chartjs/Chart.bundle.min.js"></script> <!-- 首页医院概况 -->
+<script src="/public/assets/plugins/autosize/autosize.js"></script> <!-- Autosize Plugin Js -->
+<script src="/public/assets/plugins/momentjs/moment.js"></script> <!-- Moment Plugin Js -->
+<script src="/public/assets/plugins/dropzone/dropzone.js"></script> <!-- Dropzone Plugin Js -->
+<script src="/public/assets/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+
+<!--index及start主页面的-->
+<!--<script src="/public/assets/js/pages/index.js"></script>-->
+
+<script src="/public/assets/js/pages/charts/sparkline.min.js"></script>
+<script src="/public/assets/js/pages/forms/basic-form-elements.js"></script>
+<script src="/public/js/doctor.js"></script>
+
+
+
+

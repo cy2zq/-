@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录界面</title>
+    <link rel="stylesheet" type="text/css" href="/public/css/main.css">
+    <link rel="stylesheet" type='text/css' href="/public/css/bootstrap.css">
+    <script src="/public/js/jquery.min.js"></script>
+    <script src="/public/js/bootstrap.js"></script>
+    <script src="/public/js/index.js"></script>
+</head>
+<body >
+<div class="videozz">
+    <!--<video  autoplay muted loop poster="assets/images/fallba1ck.jpg">-->
+    <!--<source 高级="assets/images/mov.mp4">-->
+    <!--你的刘览器不支持video支持-->
+    <!--</video>-->
+    <!--<audio src="public/images/yang.mp3" autoplay loop>-->
+        <!--您的浏览器不支持audio-->
+    <!--</audio>-->
+</div>
+<div class="box">
+    <div class="box-a">
+        <div class="m-2">
+            <div class="m-2-1">
+                {%if userInfo.username%}
+                <div  id="userInfo" >
+                    <div class="m-2-2 ">
+                        <span class="">用户信息</span>
+                    </div>
+                    <div class="m-2-2">
+                        <span class="username">{{userInfo.username}}</span>
+                    </div>
+                    {%if userInfo.isAdmin%}
+                    <div class="m-2-2">
+                        <span class="info">你好，管理员</span>
+                        <a href="/admin">后台管理</a>
+                    </div>
+                    {%else%}
+                    <div class="m-2-2">
+                        <span class="info">你好，欢迎来到英雄联盟</span>
+                    </div>
+                    {%endif%}
+
+                    <div class="m-2-2">
+                        <span ><a href="javascript:" id="logout">退出</a></span>
+                    </div>
+
+                </div>
+                {%else%}
+                <div  id="loginBox" >
+                    <div class="m-2-2">
+                        <input type="text" name="username" placeholder="请输入账号" />
+                    </div>
+                    <div class="m-2-2">
+                        <input type="password" name="password" placeholder="请输入密码"/>
+                    </div>
+                    <div class="m-2-2">
+                        <button>登陆</button>
+                    </div>
+                    <div class="m-2-2">
+                        <a href="javascript:">马上注册</a>
+                    </div>
+                    <div class="message"></div>
+                </div>
+
+                <div  id="registerBox" style="display: none" >
+                    <div class="m-2-2">
+                        <input type="text" placeholder="请输入账号" name="username"/>
+                    </div>
+                    <div class="m-2-2">
+                        <input type="password" placeholder="请输入密码" name="password"/>
+                    </div>
+                    <div class="m-2-2">
+                        <input type="password" placeholder="请确认输入密码" name="repassword"/>
+                    </div>
+                    <div class="m-2-2">
+                        <button> 注册</button>
+                    </div>
+                    <div class="m-2-2">
+                        <a href="javascript:">马上登录</a>
+                    </div>
+                    <div class="message"></div>
+                </div>
+                {%endif%}
+            </div>
+        </div>
+        <div class="m-5">
+            <div id="m-5-id-1">
+                <div id="m-5-2">
+                    <div id="m-5-id-2">
+                    </div>
+                    <div id="m-5-id-3"></div>
+                </div>
+            </div>
+        </div>
+        <div class="m-10"></div>
+        <div class="m-xz7"></div>
+        <div class="m-xz8 xzleft"></div>
+        <div class="m-xz9"></div>
+        <div class="m-xz9-1"></div>
+        <!-- <div class="m-x10"></div>
+        <div class="m-x11"></div>
+        <div class="m-x12 xzleft"></div>
+        <div class="m-x13"></div>
+        <div class="m-x14 xzleft"></div>
+        <div class="m-x15"></div>
+        <div class="m-x16 xzleft"></div>-->
+        <div class="m-x17 xzleft"></div>
+        <div class="m-x18"></div>
+        <div class="m-x19 xzleft"></div>
+        <div class="m-x20"></div>
+        <div class="m-8"></div>
+        <div class="m-9"><div class="masked1" id="sx8">欢迎来到天空之城</div></div>
+        <div class="m-11">
+            <div class="m-k-1"><div class="t1"></div></div>
+            <div class="m-k-2"><div class="t2"></div></div>
+            <div class="m-k-3"><div class="t3"></div></div>
+            <div class="m-k-4"><div class="t4"></div></div>
+            <div class="m-k-5"><div class="t5"></div></div>
+            <div class="m-k-6"><div class="t6"></div></div>
+            <div class="m-k-7"><div class="t7"></div></div>
+        </div>
+        <div class="m-14"><div class="ss"></div></div>
+        <div class="m-15-a">
+            <div class="m-15-k">
+                <div class="m-15xz1">
+                    <div class="m-15-dd2"></div>
+                </div>
+            </div>
+        </div>
+        <div class="m-16"></div>
+        <div class="m-17"></div>
+        <div class="m-18 xzleft"></div>
+        <div class="m-19"></div>
+        <div class="m-20 xzleft"></div>
+        <div class="m-21"></div>
+        <div class="m-22"></div>
+        <div class="m-23 xzleft"></div>
+        <div class="m-24" id="localtime"></div>
+    </div>
+</div>
+
+</body>
+</html>

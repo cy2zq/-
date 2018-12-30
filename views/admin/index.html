@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+{%block main%}
+<form  class="form-inline">
+    <div class="row alert alert-info" style="margin:0px; padding:0px; padding-left:50px;">
+        <div class="form-group">
+            <label>员工编号</label>
+            <input type="text" class="form-control" placeholder="请输入员工编号">
+            <label>员工姓名</label>
+            <input type="text" class="form-control" placeholder="请输入员工姓名">
+            <label>员工帐号</label>
+            <input type="text" class="form-control" placeholder="请输入员工帐号">
+        </div>
+        <input type="submit" class="btn btn-danger" value="查询">
+        <a href="/admin/employee/add" class="btn btn-success">添加员工</a>
+    </div>
+    <div class="row"  style="padding:15px;">
+        <table class="table" >
+            <thead>
+                <tr>
+                <th>员工编号</th>
+                <th>员工姓名</th>
+                <th>员工性别</th>
+                <th>住址</th>
+                <th>员工年龄</th>
+                <th>电话号码</th>
+                <th>email</th>
+                <th>部门名称</th>
+                <th>员工帐号</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+           <tbody>
+               {%for employees in employee%}
+               <tr>
+                   <td>{{employees.username}}{{employees._id.toString()}}</td>
+                   <td><a href="/admin/employee/add">{{employees.name}}</a></td>
+                   <td>{{employees.sex}}</td>
+                   <td>{{employees.address}}</td>
+                   <td>{{employees.age}}</td>
+                   <td>{{employees.phone}}</td>
+                   <td>{{employees.email}}</td>
+                   <td>{{employees.department.deptName}}</td>
+                   <td>{{employees.username}}</td>
+                   <td>
+                       <a href="/admin/employee/edit?id={{employees._id.toString()}}">修改</a>
+                       <a href="/admin/employee/delete?id={{employees._id.toString()}}">删除</a>
+                   </td>
+               </tr>
+               {%endfor%}
+           </tbody>
+        </table>
+        {%include 'page.html'%}
+    </div>
+</form>
+
+{%endblock%}
+
+

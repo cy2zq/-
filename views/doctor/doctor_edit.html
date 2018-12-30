@@ -1,0 +1,245 @@
+﻿{% extends 'layout.html' %}
+{%block main%}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2>医生</h2>
+            <small class="text-muted">欢迎光临</small>
+        </div>
+        <form method="post">
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>基本信息<small>Description text here...</small> </h2>
+                        <ul class="header-dropdown m-r--5">
+                            <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="zmdi zmdi-more-vert"></i></a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href="javascript:void(0);" class=" waves-effect waves-block">Action</a></li>
+                                    <li><a href="javascript:void(0);" class=" waves-effect waves-block">Another action</a></li>
+                                    <li><a href="javascript:void(0);" class=" waves-effect waves-block">Something else here</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="body">
+                        <div class="row clearfix">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" value="{{doctor.name}}" name="name" placeholder="Name">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" value="{{doctor.title}}" name="title"  placeholder="职称">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" class="datepicker form-control"value="{{doctor.birth}}" name="birth" placeholder="生日">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group drop-custum">
+                                    <select class="form-control show-tick" id="sex" value="{{doctor.sex}}" name="sex">
+                                        <option value="保密">-- 保密 --</option>
+                                        <option value="男">男</option>
+                                        <option value="女">女</option>
+                                    </select>
+                                    <script>
+                                            var sex=document.getElementById('sex');
+                                            for(var x=0;x<=sex.length-1;x++){
+                                                if(sex[x].innerHTML=='{{doctor.sex}}'){
+                                                    sex[x].setAttribute('selected','selected')
+                                                }
+                                            }
+                                    </script>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <div class="form-line" >
+                                        <input type="text" class="form-control" value="{{doctor.speciality}}"name="speciality" placeholder="Speciality">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control"value="{{doctor.phone}}" name="phone" placeholder="Phone">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control"value="{{doctor.email}}" name="email" placeholder="Enter Your Email">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control"value="{{doctor.website}}"name="website" placeholder="Website URL">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--<div class="col-lg-12 col-md-12 col-sm-12">-->
+                                <!--<form action="/" id="frmFileUpload" class="dropzone" method="post" enctype="multipart/form-data">-->
+                                    <!--<div class="dz-message">-->
+                                        <!--<div class="drag-icon-cph"> <i class="material-icons">touch_app</i> </div>-->
+                                        <!--<h3>删除和上传文件</h3>-->
+                                        <!--<em>演示<strong>not</strong> actually uploaded.)</em> </div>-->
+                                    <!--<div class="fallback">-->
+                                        <!--<input name="file" type="file" multiple />-->
+                                    <!--</div>-->
+                                <!--</form>-->
+                            <!--</div>-->
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <textarea rows="4" class="form-control no-resize" placeholder="Please type what you want..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <button type="submit" class="btn btn-raised g-bg-cyan">修改医生基本信息</button>
+                                <button type="submit" class="btn btn-raised">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </form>
+        <div class="row clearfix">
+            <!--<div class="col-md-12">-->
+                <!--<div class="card">-->
+                    <!--<div class="header">-->
+                        <!--<h2>医生的账户信息<small>Description text here...</small> </h2>-->
+                        <!--<ul class="header-dropdown m-r&#45;&#45;5">-->
+                            <!--<li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="zmdi zmdi-more-vert"></i></a>-->
+                                <!--<ul class="dropdown-menu pull-right">-->
+                                    <!--<li><a href="javascript:void(0);" class=" waves-effect waves-block">Action</a></li>-->
+                                    <!--<li><a href="javascript:void(0);" class=" waves-effect waves-block">Another action</a></li>-->
+                                    <!--<li><a href="javascript:void(0);" class=" waves-effect waves-block">Something else here</a></li>-->
+                                <!--</ul>-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
+                    <!--<div class="body">-->
+                        <!--<div class="row clearfix">-->
+                            <!--<div class="col-sm-12">-->
+                                <!--<div class="form-group">-->
+                                    <!--<div class="form-line">-->
+                                        <!--<input type="text" class="form-control" name="username" placeholder="User Name">-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="col-sm-6">-->
+                                <!--<div class="form-group">-->
+                                    <!--<div class="form-line">-->
+                                        <!--<input type="text" class="form-control" name="password" placeholder="Password">-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="col-sm-6">-->
+                                <!--<div class="form-group">-->
+                                    <!--<div class="form-line">-->
+                                        <!--<input type="text" class="form-control" placeholder="Confirm Password">-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="col-sm-12">-->
+                                <!--<button type="submit" class="btn btn-raised g-bg-cyan">Submit</button>-->
+                                <!--<button type="submit" class="btn btn-raised">Cancel</button>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+        <div class="row clearfix">
+            <!--<div class="col-md-12">-->
+                <!--<div class="card">-->
+                    <!--<div class="header">-->
+                        <!--<h2>医生的社交信息<small>Description text here...</small> </h2>-->
+                        <!--<ul class="header-dropdown m-r&#45;&#45;5">-->
+                            <!--<li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="zmdi zmdi-more-vert"></i></a>-->
+                                <!--<ul class="dropdown-menu pull-right">-->
+                                    <!--<li><a href="javascript:void(0);" class=" waves-effect waves-block">Action</a></li>-->
+                                    <!--<li><a href="javascript:void(0);" class=" waves-effect waves-block">Another action</a></li>-->
+                                    <!--<li><a href="javascript:void(0);" class=" waves-effect waves-block">Something else here</a></li>-->
+                                <!--</ul>-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
+                    <!--<div class="body">-->
+                        <!--<div class="row clearfix">-->
+                            <!--<div class="col-sm-4">-->
+                                <!--<div class="form-group">-->
+                                    <!--<div class="form-line">-->
+                                        <!--<input type="text" class="form-control" placeholder="Facebook">-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="col-sm-4">-->
+                                <!--<div class="form-group">-->
+                                    <!--<div class="form-line">-->
+                                        <!--<input type="text" class="form-control" placeholder="Twitter">-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="col-sm-4">-->
+                                <!--<div class="form-group">-->
+                                    <!--<div class="form-line">-->
+                                        <!--<input type="text" class="form-control" placeholder="Google Plus">-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="col-sm-4">-->
+                                <!--<div class="form-group">-->
+                                    <!--<div class="form-line">-->
+                                        <!--<input type="text" class="form-control" placeholder="LinkedIN ">-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="col-sm-4">-->
+                                <!--<div class="form-group">-->
+                                    <!--<div class="form-line">-->
+                                        <!--<input type="text" class="form-control" placeholder="Behance">-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="col-sm-4">-->
+                                <!--<div class="form-group">-->
+                                    <!--<div class="form-line">-->
+                                        <!--<input type="text" class="form-control" placeholder="dribbble">-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="col-sm-12">-->
+                                <!--<button type="submit" class="btn btn-raised g-bg-cyan">Submit</button>-->
+                                <!--<button type="submit" class="btn btn-raised">Cancel</button>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+
+    </div>
+
+</section>
+
+{%endblock%}
+

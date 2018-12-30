@@ -1,0 +1,46 @@
+﻿{% extends 'layout.html' %}
+{%block main%}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2>医生</h2>
+            <small class="text-muted">欢迎来到7777</small>
+        </div>
+        <div class="row clearfix" id="doctorList">
+            {%for doctor in doctor%}
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                <div class="card">
+                    <div class="body">
+                        <div class="member-card">
+                            <div class="thumb-xl member-thumb">
+                                <img src="/public/assets/images/random-avatar4.jpg" class="img-thumbnail rounded-circle" alt="profile-image">
+                            </div>
+                            <div class="">
+                                <h4 class="m-b-5 m-t-20">{{doctor.name}}</h4>
+                                <p class="text-muted">{{doctor.title}}<span> <a href="#" class="text-pink">websitename.com</a> </span></p>
+                            </div>
+                            <p class="text-muted">{{doctor.phone}}</p>
+                            <a href="/admin/doctor/profile?id={{doctor._id.toString()}}"  class="btn btn-raised btn-sm">查看详细资料</a>
+                            <ul class="social-links list-inline m-t-10">
+                                <li><a title="facebook" href="#"><i class="zmdi zmdi-facebook"></i></a></li>
+                                <li><a title="twitter" href="#" ><i class="zmdi zmdi-twitter"></i></a></li>
+                                <li><a title="instagram" href="" ><i class="zmdi zmdi-instagram"></i></a></li>
+                                <li><a title="instagram" href="/admin/doctor/edit?id={{doctor._id.toString()}}" ><i class="zmdi zmdi-edit"></i></a></li>
+                                <li><a title="instagram" href="/admin/doctor/delete?id={{doctor._id.toString()}}" ><i class="zmdi zmdi-delete"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+        <div class="row clearfix">
+            <div class="col-sm-12 text-center">
+                <a href="/admin/doctor/add" class="btn btn-raised g-bg-cyan">增加医生</a>
+            </div>
+        </div>
+    </div>
+</section>
+{%endblock%}
+

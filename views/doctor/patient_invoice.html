@@ -1,0 +1,110 @@
+﻿{% extends 'layout.html' %}
+{%block main%}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2>您的消费</h2>
+            <small class="text-muted">感谢您来送钱</small>
+        </div>
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>费用明细</h2>
+                        <ul class="header-dropdown">
+                            <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more-vert"></i> </a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href="javascript:void(0);">打印清单</a></li>
+                                    <li role="presentation" class="divider"></li>
+                                    <li><a href="javascript:void(0);">Export to XLS</a></li>
+                                    <li><a href="javascript:void(0);">Export to CSV</a></li>
+                                    <li><a href="javascript:void(0);">Export to XML</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="body">
+                        <div class="row clearfix">
+                            <div class="col-md-4 col-sm-4">
+                                <h4><img src="/public/assets/images/logo-placeholder.jpg" width="70" alt="velonic"></h4>
+                            </div>
+                            <div class="col-md-8 col-sm-8">
+                                <h4>生病真不好<br>
+                                    <strong>好好学习，天天向上</strong>
+                                </h4>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <address>
+                                    <strong>安徽省</strong><br>
+                                    淮北市<br>
+                                    某某天堂等您<br>
+                                    <abbr title="Phone">电话</abbr> 7474741
+                                </address>
+                            </div>
+                            <div class="col-md-6 col-sm-6 text-right">
+                                <p><strong>医嘱日期 </strong> Jun 15, 2016</p>
+                                <p class="m-t-10"><strong>医嘱状态: </strong> <span class="badge bg-orange">Pending</span></p>
+                                <p class="m-t-10"><strong>医嘱索引: </strong> #123456</p>
+                            </div>
+                        </div>
+                        <div class="mt-40"></div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="table-responsive">
+                                    <table id="mainTable" class="table table-striped" style="cursor: pointer;">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>项目名</th>
+                                                <th>Description</th>
+                                                <th>数量</th>
+                                                <th>费用</th>
+                                                <th>总价</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {%for invoice in invoice%}
+                                        <tr>
+                                            <td>1</td>
+                                            <td>{{invoice.itemName}}</td>
+                                            <td>{{invoice.desc}}</td>
+                                            <td>{{invoice.count}}</td>
+                                            <td>{{invoice.price}}</td>
+                                            <td>${{invoice.count*invoice.price}}</td>
+                                        </tr>
+                                        {%endfor%}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row" style="border-radius: 0px;">
+                            <div class="col-md-12 text-right">
+                                <p class="text-right"><b>
+                                    您运气这号:</b> ￥2930.00</p>
+                                <p class="text-right">给你打个折: 12.9%</p>
+                                <p class="text-right">VAT: 12.9%</p>
+                                <hr>
+                                <h3 class="text-right">不用谢 998元</h3>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="hidden-print col-md-12 text-right">
+                            <a href="javascript:window.print()" class="btn btn-raised btn-success"><i class="zmdi zmdi-print"></i></a>
+                            <a href="#" class="btn btn-raised btn-default">Submit</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{%endblock%}
+

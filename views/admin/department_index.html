@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+
+{%block main%}
+
+
+<form    class="form-inline">
+    <div class="row alert alert-info" style="margin:0px; padding:0px; padding-left:50px;">
+        <div class="form-group">
+            <label>部门名称</label>
+            <input type="text" class="form-control" placeholder="请输入部门名称">
+
+        </div>
+        <input type="submit" class="btn btn-danger" value="查询">
+        <a href="/admin/department/add" class="btn btn-success">添加部门信息</a>
+    </div>
+    <div class="row"  style="padding:15px;">
+        <table class="table" >
+            <tr>
+                <th>部门编号</th>
+                <th>部门名称</th>
+                <th>部门描述</th>
+                <th>操作</th>
+            </tr>
+            {%for department in department %}
+            <tr>
+                <td>{{department._id.toString()}}</td>
+                <td>{{department.deptName}}</td>
+                <td>{{department.deptDescription}}</td>
+                <td>
+                    <a href="/admin/department/edit?id={{department._id.toString()}}">修改</a>
+                    <a href="/admin/department/delete?id={{department._id.toString()}}">删除</a>
+                </td>
+            </tr>
+            {%endfor%}
+        </table>
+
+    </div>
+</form>
+
+
+{%endblock%}
+
+
